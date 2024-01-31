@@ -32,51 +32,54 @@ function validateForm(){
     const emailValue = email.value.trim();
     const phNumberValue = phNumber.value.trim();
     const messageValue = message.value.trim();
+    let flag = true;
 
-    if(nameValue === ''){
-        setError(username,'Name should not be empty');
+    if(nameValue === '' || nameValue.length < 3){
+        flag=false;
+        setError(username,'Name should not be empty or too short');
         Thanksmsg.innerText = '';
-        return false;
     }else{
         setSuccess(username);
     }
 
     if(!validateEmail(emailValue)){
+        flag=false;
         setError(email,'Invaild Email ID');
         Thanksmsg.innerText = '';
-        return false;
     }else{
         setSuccess(email);
     }
 
     if(phNumberValue.length != 10){
+        flag=false;
         setError(phNumber,'Invaild Phone Number');
         Thanksmsg.innerText = '';
-        return false;
     }else{
         setSuccess(phNumber);
     }
 
     if(messageValue.length < 30){
+        flag=false;
         setError(message,'Message should be morethan 30 characters');
         Thanksmsg.innerText = '';
-        return false;
     }else{
         setSuccess(message);
     }
 
-    return true;
+    return flag;
 
 }
 
+// This function set show error message and change input border color to red
 function setError(element,message){
     const inputGroup = element.parentElement;
     const errorElement = inputGroup.querySelector(".error");
     errorElement.innerText = message;
     inputGroup.classList.add('error');
     inputGroup.classList.remove('success');
-
 }
+
+// This function set remove error message (if any) and change input border color to green
 function setSuccess(element){
     const inputGroup = element.parentElement;
     console.log(inputGroup);
