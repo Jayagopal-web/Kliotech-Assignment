@@ -6,6 +6,7 @@
     <title>MS Dhoni</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./style.css">
+    <script src="app.js" defer></script>
 </head>
 <body id="home">
     <!-- navbar -->
@@ -131,26 +132,31 @@
         </section>
         <section id="contact" class="contact">
             <div class="container">
-                <form action="">
+                <form action="javascript:validate()" method="post" id="contactForm">
                     <h1>Contact Us</h1>
                     <div class="input-group">
                         <label for="name">Name</label>
                         <input type="text" name="name" id="name">
+                        <div class="error"></div>
                     </div>
                     <div class="input-group">
                         <label for="email">Email</label>
-                        <input type="email" name="name" id="name">
+                        <input type="text" name="email" id="email">
+                        <div class="error"></div>
                     </div>
                     <div class="input-group">
                         <label for="Phnumber">Phone Number</label>
                         <input type="number" name="ph-number" id="ph-number">
+                        <div class="error"></div>
                     </div>
                     <div class="input-group">
                         <label for="message">Message</label>
-                        <textarea name="message" id="message" cols="30" rows="10"></textarea>
+                        <textarea name="message" id="message" cols="30" rows="5"></textarea>
+                        <div class="error"></div>
                     </div>
                     <div class="input-group">
                         <input type="submit" value="Submit" class="submit">
+                        <div id="alert"></div>
                     </div>
                     
                 </form>
