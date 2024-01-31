@@ -244,24 +244,33 @@ main section{
     color: #FFF;
     width: 100%;
 }
+/* Hover effect to sumit btn */
+.contact .container .submit:hover{
+    background-color: rgb(74, 116, 221);
+}
+
 
 /* padding for input field */
-.input-group input,textarea{
+.input-group input,textarea, select{
     padding: 10px;
     font-size: 1.2rem;
     border-radius: 5px;
     border: 2px  #19398a solid;
 }
+
+/* change error text to red */
 .input-group .error{
     margin-top: 5px;
     font-size: 1rem;
     color: red;
 }
 
+/* If input value is correct, the border color change to green */
 .input-group.success input,.input-group.success textarea{
     border-color: #0cc477;
 }
 
+/* If input value is wrong, the border color change to red */
 .input-group.error input,.input-group.error textarea{
     border-color: rgba(206, 67, 67);
     border-color: red;
@@ -299,3 +308,19 @@ main section{
     list-style-type: none;
     margin: auto .5rem;
 }
+
+
+
+
+/* Dropdown style */
+/* .number-group{
+   width: 100%;
+   display: flex;
+   gap: 10px;
+}
+.number-code{
+    width: 25%;
+}
+.number-group input{
+    width: 75%;
+} */

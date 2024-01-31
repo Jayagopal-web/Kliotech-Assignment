@@ -13,7 +13,9 @@ form.addEventListener('submit', (e)=>{
         e.preventDefault();
     }else{
         // alert("sdfsdf");
+        e.preventDefault();
         Thanksmsg.innerText = "Thank you!!";
+        
     }
     
 });
