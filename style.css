@@ -1,0 +1,226 @@
+/* Import google font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/* Remove default styles */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    scroll-behavior: smooth;
+}
+
+/* Navbar style */
+.navigation{
+    height: 10vh;
+    background-color: #19398a;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
+.navbar{
+    display: flex;
+    justify-content: space-between;
+}
+.navbar img{
+    margin: 1rem;
+    width: 50px;
+    height: 50px;
+    color: white;
+}
+.navigation ul{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-right: 1rem;
+}
+.navigation ul li{
+    padding: 1rem;
+    list-style-type: none;
+}
+a{
+    box-shadow: inset 0 0 0 0 #54b3d6;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 0 .25rem;
+    color: whitesmoke;
+    transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+}
+.navigation ul li a:hover{
+    box-shadow: inset 150px 0 0 0 #54b3d6;
+    color: white;
+}
+
+/* Every Section have 100% height */
+main section{
+    height: 100vh;
+}
+
+/* Name - Quote - Background Image*/
+.main-content{
+    background-image: url(./images/bg.jpeg);
+    /* height: 90vh; */
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* .main-content{
+    background-color: antiquewhite;
+    height: 85vh;
+} */
+
+.main-content header{
+    left:  60%;
+    position: absolute;
+    top: 40%;
+    color: whitesmoke;
+    font-size: 2em;
+    text-shadow: 0px 1px 2px black;
+}
+.main-content header q{
+    display: inline-block;
+    margin-top: 20px;
+    text-transform: capitalize;
+}
+/* .main-content header button{
+    margin-top: 1rem;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: #19398a;
+    color: whitesmoke;
+    letter-spacing: 1px;
+    box-shadow: none;
+    border: 1px solid white;
+    border-radius: 20px;
+} */
+.main-content header a{
+    background: rgba(0,0,0,.2);
+    border: 1px solid #fff;
+    display: inline-block;
+    margin-top: 1rem;
+    border-radius: 4px;
+    padding: .5rem;
+    font-weight: 700;
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+/* Typography Biography, Achievements, Gallery, .Quotes */
+.biography, .achievements, .gallery, .quotes{
+    margin: .5em .5em .5em .3em;
+    font-size: 1.2rem;
+    text-align: justify;
+}
+
+/* Biography */
+.float{
+    padding: 1rem;
+}
+/* Resize the MS Dhoni World Cup image */
+.float img{
+    width: 220px;
+    height: 250px;
+
+}
+.right{
+    float: right;
+    margin-left: .5em;
+}
+
+/* Head of Each Section */
+.biography h1, .achievements h1, .gallery h1, .quotes h1{
+    padding-top: 5rem;
+}
+/* Subheading */
+.biography h2{
+    margin-top: 1rem;
+}
+.biography p{
+    margin-top: 1rem;
+    text-indent: 3em;
+}
+
+/* Achievements table*/
+.achievements table,caption{
+    margin: 1rem auto;
+}
+.achievements table th, tr, td{
+    padding: 1rem;
+    border: 1px solid #000;
+}
+.achievements caption{
+    font-size: 1.5em;
+}
+/* Hover Table effect */
+td:hover,th:hover{
+    background-color: hsla(0, 0%, 0%, 0.122);
+}
+
+/* Gallery Style*/
+.flex img{
+    width: 275px;
+    height: 300px;
+    box-shadow: 3px 2px 13px -2px rgba(0, 0, 0);
+}
+.flex img:hover{
+    width: 280px;
+    height: 305px;
+    box-shadow: 3px 6px 20px 1px rgba(0, 0, 0);
+}
+.flex{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 1rem;
+}
+
+/* Quotes Card Style */
+.quotes{
+    height: 91vh;
+}
+.flex-box{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 2em;
+    gap: 2rem;
+}
+.card{
+    margin: 8px 4px 4px;
+    background-color: #FFF;
+    max-width: 400px;
+    box-shadow: 3px 2px 13px -2px rgba(0, 0, 0);
+    border-radius: 2rem;
+    padding: 1.5rem;
+}
+
+
+/* Footer */
+.footer{
+    height: 8vh;
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem 0 1rem;
+    align-items: center;
+    color: #FFF;
+}
+/* Social media links */
+.links{
+    display: flex;
+    justify-content: space-evenly;
+    width: 30%;
+    align-items: center;
+}
+.links ul{
+    display: flex;
+}
+.links ul li{
+    list-style-type: none;
+    margin: auto .5rem;
+}
+
+
