@@ -9,10 +9,13 @@
     font-family: "Roboto", sans-serif;
     scroll-behavior: smooth;
 }
+html,body{
+    min-width: 550px;
+}
 
 /* Navbar style */
 .navigation{
-    height: 10vh;
+    height: 10%;
     background-color: #19398a;
     position: fixed;
     width: 100%;
@@ -52,22 +55,26 @@ a{
 }
 
 /* Every Section have 100% height */
-main section{
+/* main section{
     height: 100vh;
-}
+} */
 
 /* Name - Quote - Background Image*/
 .main-content{
-    background-image: url(./images/bg.jpeg);
-    /* height: 90vh; */
+    background: url(./images/bg2.jpg);
+    height: 100vh;
     background-repeat: no-repeat;
+    /* background-position: center; */
     background-size: cover;
+    background-attachment: fixed;
 }
 
-/* .main-content{
-    background-color: antiquewhite;
-    height: 85vh;
-} */
+.headName-max{
+    display: block;
+}
+.headName-950{
+    display: none;
+}
 
 .main-content header{
     left:  60%;
@@ -82,18 +89,8 @@ main section{
     margin-top: 20px;
     text-transform: capitalize;
 }
-/* .main-content header button{
-    margin-top: 1rem;
-    padding: 1rem;
-    font-size: 1rem;
-    font-weight: 600;
-    background-color: #19398a;
-    color: whitesmoke;
-    letter-spacing: 1px;
-    box-shadow: none;
-    border: 1px solid white;
-    border-radius: 20px;
-} */
+
+/* Scorll down button style */
 .main-content header a{
     background: rgba(0,0,0,.2);
     border: 1px solid #fff;
@@ -191,9 +188,9 @@ main section{
 }
 
 /* Quotes Card Style */
-.quotes{
+/* .quotes{
     height: 100vh;
-}
+} */
 .flex-box{
     display: flex;
     flex-wrap: wrap;
@@ -215,6 +212,7 @@ main section{
 /* card design for contact us page */
 .contact .container{
     max-width: 600px;
+    min-width: 550px;
     margin: 1em auto;    
     padding: 20px;
     background-color: #FFF;
@@ -258,6 +256,17 @@ main section{
     border: 2px  #19398a solid;
 }
 
+.number-group{
+    width: 100%;
+}
+.number-group .number-code{
+    width: 20%;
+}
+.number-group input{
+    width: 79%;
+}
+
+
 /* change error text to red */
 .input-group .error{
     margin-top: 5px;
@@ -266,13 +275,12 @@ main section{
 }
 
 /* If input value is correct, the border color change to green */
-.input-group.success input,.input-group.success textarea{
+.input-group.success input,.input-group.success textarea, .number-group.success input, .number-group.success select{
     border-color: #0cc477;
 }
 
 /* If input value is wrong, the border color change to red */
-.input-group.error input,.input-group.error textarea{
-    border-color: rgba(206, 67, 67);
+.input-group.error input,.input-group.error textarea, .number-group.error input, .number-group.error select{
     border-color: red;
 }
 
@@ -287,6 +295,7 @@ main section{
 /* Footer */
 .footer{
     height: 8vh;
+    width: 100%;
     background-color: black;
     display: flex;
     justify-content: space-between;
@@ -311,16 +320,24 @@ main section{
 
 
 
-
-/* Dropdown style */
-/* .number-group{
-   width: 100%;
-   display: flex;
-   gap: 10px;
+/* Background image */
+@media(max-width:825px){
+    .main-content{
+    background-position: center;
+    }
 }
-.number-code{
-    width: 25%;
+/* Change Full name to Short Name in Header section  Eg: Mahendra Singh Dhoni to MS Dhoni */
+@media(max-width:1200px){
+    .headName-max{
+        display: none;
+    }
+    .headName-950{
+        display: block;
+    }
 }
-.number-group input{
-    width: 75%;
+/* @media(max-width:948px){
+    .main-content{
+    background-color: #d8e0f4;
+    background-blend-mode: multiply;
+    }
 } */
