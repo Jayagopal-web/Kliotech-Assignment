@@ -7,35 +7,55 @@ const message = document.getElementById("message");
 /* After successfully submit form */
 const Thanksmsg = document.getElementById("alert");
 
-form.addEventListener('submit', (e)=>{
+//phone number country code
+const mobileCountryCodes = [
+    { name: 'Afghanistan', code: '+93' },
+    { name: 'Albania', code: '+355' },
+    { name: 'Algeria', code: '+213' },
+    { name: 'Andorra', code: '+376' },
+    { name: 'Angola', code: '+244' },
+    { name: 'India', code: '+91' },
+    { name: 'Indonesia', code: '+62' },
+    { name: 'Iran', code: '+98' },
+    { name: 'Iraq', code: '+964' },
+    { name: 'Italy', code: '+39' },
+    { name: 'Zimbabwe', code: '+263' },
+];
 
-    if(!validateForm()){
-        e.preventDefault();
-    }else{
-        // alert("sdfsdf");
-        e.preventDefault();
+// Get phone number country code dropdown id
+const phCode = document.getElementById("number-code");
+
+// Loop all Country code
+mobileCountryCodes.forEach((item) => {
+    const option = document.createElement("option");
+    option.value = `${item.code}`;
+    option.innerText = `${item.code} ${item.name}`;
+    phCode.appendChild(option);
+    console.log(item.code);
+});
+
+
+
+// This will invoke wehen user submit the contact form
+form.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    // Return True if all inputs value correct, Else false.
+    if(validateForm()){
         Thanksmsg.innerText = "Thank you!!";
-        
     }
     
 });
-// function validate(){
-//     const nameValue = username.value.trim();
-//     const emailValue = email.value.trim();
-//     const phNumberValue = phNumber.value.trim();
-
-//     validateForm();
-//     e.preventDefault();
-
-// }
 
 function validateForm(){
     const nameValue = username.value.trim();
+    console.log(username);
     const emailValue = email.value.trim();
     const phNumberValue = phNumber.value.trim();
     const messageValue = message.value.trim();
+    // set flag true
     let flag = true;
 
+    // validate if name empty and length morethan three letters
     if(nameValue === '' || nameValue.length < 3){
         flag=false;
         setError(username,'Name should not be empty or too short');
@@ -44,6 +64,7 @@ function validateForm(){
         setSuccess(username);
     }
 
+    // Validate Email use regular expression.
     if(!validateEmail(emailValue)){
         flag=false;
         setError(email,'Invaild Email ID');
@@ -52,6 +73,7 @@ function validateForm(){
         setSuccess(email);
     }
 
+    // Validate if Contact Number have 10 numbers
     if(phNumberValue.length != 10){
         flag=false;
         setError(phNumber,'Invaild Phone Number');
@@ -60,6 +82,7 @@ function validateForm(){
         setSuccess(phNumber);
     }
 
+    // Check message length atleast morethan 30 characters
     if(messageValue.length < 30){
         flag=false;
         setError(message,'Message should be morethan 30 characters');
@@ -68,6 +91,7 @@ function validateForm(){
         setSuccess(message);
     }
 
+    // Return true if no errors.
     return flag;
 
 }
