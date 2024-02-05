@@ -1,0 +1,254 @@
+
+/* Import google Roboto font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/* Remove browser default styles */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    scroll-behavior: smooth;
+}
+body{
+    height: 100%;
+}
+
+/* Heading Text : Mahendra Singh MS Dhoni.
+hide the 'MS' text, so the hearder text looks like 'Mahendra Singh Dhoni'.
+
+HTML Text: <span class="desktopHeading">Mahendra Singh</span><span class="mobileHeading">MS</span> Dhoni
+*/
+.mobileHeading{
+    display: none;
+}
+
+/* Place each container in a flexbox and change the direction to column.
+    --The order of flex items--
+            Header
+            Navbar
+            Content
+            Footer
+*/
+.main-container{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+}
+
+/* Style header, Apply flex to display center */
+.header{
+    background-color: #19398a;
+    color: #fff;
+    padding: 1rem;
+    letter-spacing: 1px;
+    max-height: 10vh;
+    /* Center the Text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Navbar: set background color and padding */
+.navbar{
+    background-color: #c3d2f9;
+    padding: .3rem;
+    max-height: 8vh;
+    /* apply flex to give eqaul space between links */
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+/* remove anchor tag style & style like button */
+a{
+    text-decoration: none;
+    color:  #19398a;
+    border:  #19398a 1px solid;
+    border-radius: 3px;
+    width: 100%;
+    padding: 15px;
+    font-weight: 800;
+}
+
+/* Apply margin and center the text */
+.navbar a{
+
+    /* set left and right space for each navbar anchor '<a>' tag */
+    margin: 0 10px;
+    
+    /* Center the Text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* set hover effects to all anchor '<a>' tag */
+a:hover{
+    background-color: #19398a;
+    color: #fff;
+}
+
+/* set flexbox to display each section into row */
+.flex-container{
+    padding: .5rem;
+    width: 100%;
+
+    
+    display: flex;
+    flex-direction: row;
+    /* flex-wrap: wrap; */
+    justify-content: space-between;
+    flex: 1; /* set flexible items */
+    
+    
+}
+
+/* Set a flex direction column for each content item. E.g: image, paragraph, and anchor tag link */
+.flex-div-container{
+    padding: .5rem;
+    /* border: 2px black solid; */
+    width: 100%;
+    margin: 0 2px;
+    box-shadow: #000 1px 1px 3px 0px;
+
+
+    /* apply flex direction to column */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    flex: 1;
+    
+}
+
+/* flexbox-home2.html
+This provides extra space for the third section's content.
+*/
+.content-three{
+    display: flex;
+    flex: 2;
+}
+
+/* Set responsive image within container */
+.flex-div-container .img img{
+    width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+/* Set bottom margin to para tag and typography*/
+.flex-div-container .overview p{
+    text-align: justify;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+/* push anchor tag to bottom of container */
+.flex-div-container .button{
+    width: 100%;
+    margin-top: auto;
+}
+
+/* apply flexbox to center the anchor text */
+.flex-div-container .button a{
+    padding: 10px;
+
+    display: flex;
+    align-self: flex-end;
+    justify-content: center; 
+}
+
+
+/* footer */
+/* style footer and set text to center of container */
+.footer{
+    padding: 15px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    max-height: 8vh;
+    background-color: black;
+    color: #fff;
+    /* Center the text */
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+
+
+/* Responsive desgin for mobile phones screen  */
+@media (max-width: 550px) {
+
+    /* Change content section into column */
+    .flex-container{
+        flex-direction: column;       
+    }
+    .flex-div-container{
+        min-width: auto !important;
+    }
+
+    /* Change the order of flex items, Order look like;
+        Header
+        Content
+        Navbar
+        Footer       
+    */
+    .header{
+        order: 0
+    }
+    .flex-container{
+        order: 1;
+    }
+    .navbar{
+        order: 2;
+    }
+    .footer{
+        order: 3;
+    }
+}
+
+/* Change content flex direction row fixed to wrap */
+@media(max-width:1024px){
+    .flex-container{
+        flex-wrap: wrap;
+    }
+    .flex-div-container{
+        min-width: 450px;
+    }
+}
+
+/* decrease the margin and padding size in the navbar anchor tag */
+@media (max-width:700px){
+    .navbar a{
+        margin: 0 5px;
+        padding: 10px;
+    }
+}
+
+/* decrease navbar container padding size */
+@media (max-width:500px){
+    .navbar{
+        padding: 5px;
+        max-width: 500px;
+    }
+    /* Again, a decrease in the margin, padding left-right, and font size of the anchor tag */
+    .navbar a{
+        margin: 0 2px;
+        padding: 10px 5px;
+        font-size: small;
+    }
+}
+
+/* 
+Heading Text : Mahendra Singh Dhoni 
+hide the 'Mahendra Single' text and the unhidden 'MS' text, so the hearder text looks like 'MS Dhoni'.
+*/
+@media (max-width:450px){
+    .desktopHeading{
+        display: none;
+    }
+    .mobileHeading{
+        display: inline;
+    }
+}

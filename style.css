@@ -49,7 +49,7 @@ a{
     color: whitesmoke;
     transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
 }
-.navigation ul li a:hover{
+.navigation ul li a:hover, .navigation ul li a:active{
     box-shadow: inset 150px 0 0 0 #54b3d6;
     color: white;
 }
