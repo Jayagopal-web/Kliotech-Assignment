@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="./quiz.css">
+</head>
+<body>
+    <!-- Header of page -->
+    <div class="header">
+        <h1>Quiz</h1>
+    </div>
+
+    <!-- Introduction Section -->
+    <div id="introductionSection" class="introductionSection">
+        <h1 class="introductionHeading">Introduction Quiz Application</h1>  
+
+        <div class="introductionContainer">
+            <div class="points">
+                <h2>Working Model Overview:</h2>
+                <p>The quiz focuses on MS Dhoni-related questions, guiding users through a specific process.</p>
+            </div>
+
+            <div class="points">
+                <h2>Current Question Number and Score Display:</h2>
+                <ul>
+                    <li>At the top left corner, users will see the current question number, while the user's score will be displayed at the top right corner throughout the quiz.</li>
+                </ul>
+            </div>
+
+            <div class="points">
+                <h2>Question Format:</h2>
+                <ul>
+                    <li>Questions are displayed along with four options, requiring users to select one before proceeding.</li>
+                </ul>
+            </div>
+
+            <div class="points">
+                <h2>Quiz Completion:</h2>
+                <ul>
+                    <li>After answering all questions, the application will display the user's final score and feedback.</li>
+                </ul>
+            </div>
+
+            <div class="points">
+                <h2>Restart Option:</h2>
+                <ul>
+                    <li>Users can restart the quiz from the feedback section.</li>
+                </ul>
+            </div>
+
+            <!-- Start Button -->
+            <div class="startButton">
+                <button class="btn btn-hover" id="startBtn">Start!</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quiz Application -->
+    <div class="container" id="quizAppContainer">
+        <div class="quizApp">
+            <div class="questionNo-score">
+                <h1 id="questionNo"></h1>
+                <h1><span id="scoreText">score: </span><span id="score">0</span></h1>
+            </div>
+            <div><h2 id="question">This is Question one?</h2></div>
+            <div class="answerButtons" id="answerButtons">
+            </div>
+            <div class="next">
+                <button class="btn btn-hover" id="nextBtn">Next</button>
+            </div>
+        </div>
+    </div>
+    <script src="app.js" defer></script>
+</body>
+</html>

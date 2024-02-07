@@ -1,0 +1,149 @@
+/* Import google Roboto font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/* Remove browser default styles */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    scroll-behavior: smooth;
+}
+
+/* Style header, Apply flex to display left end */
+.header{
+    background-color: #19398a;
+    color: #fff;
+    padding: 1rem;
+    letter-spacing: 1px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+
+/* introduction page style */
+.introductionSection{
+    width: 650px;
+    margin: 1.5rem auto 0 auto;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffffcf;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 1px;
+}
+
+/* Center the Introduction heading */
+.introductionSection .introductionHeading{
+    align-self: center;
+    margin-bottom: 1rem;
+}
+
+/* typography */
+.points{
+    text-align: justify;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+ul{
+    margin-left: 2rem;
+}
+/* remove list style type */
+ul li{
+    list-style-type: none;
+}
+
+/* introduction page start button style */
+.startButton{
+    text-align: center;
+}
+
+
+
+/* Quiz Application */
+/* Center the container */
+.container{
+    min-height: 88vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* card style */
+.quizApp{
+    max-width: 600px;
+    min-width: 500px;
+    padding: 1rem;
+    background-color: #ffffffcf;
+    box-shadow: 0 0 10px 1px;
+    border-radius: 5px;
+    border-top: #19398a 5px solid;
+}
+
+/* Question No count and Score*/
+.questionNo-score{
+    margin: 1rem;
+
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+    border-bottom: #19398a 2px solid;
+}
+
+/* Style the option to display in columns */
+.answerButtons{
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* style button */
+.btn{
+    text-align: start;
+    cursor: pointer;
+    font-size: 1.2rem;
+    background-color: transparent;
+    border-color: rgb(0 0 0 /30%);
+    border-radius: 5px;
+    padding: 10px;
+    transition: all .3s ;
+}
+
+/* Hover effect only for buttons not Options */
+.btn-hover:hover{
+    background-color: #19398a;
+    color: #fff;
+}
+
+/* hover effect for options */
+.btn:hover:not([disabled]){
+    outline: auto;
+    border-color: rgb(0 0 0);
+}
+/* Display Next Button to End of Card */
+.next{
+    display: flex;
+    justify-content: end;
+}
+
+/* centre the button, which is the restart button.
+This style class is added through JS. */
+.nextCenter{
+    justify-content: center;
+}
+
+/* hide 'Next' button, later it will change through JS*/
+#nextBtn{
+    display: none;
+}
+
+/* add green background color to option */
+.correct{
+    background: #9aeabc;
+}
+/* add red background color to option */
+.incorrect{
+    background: #ff9393;
+}
