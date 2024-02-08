@@ -92,10 +92,16 @@ const questions = [
     },
 ];
 
+// This array store user answer to evalute score and feedback 
+let feedbackAns =[];
 
-
+// To display questions
 const questionElement = document.getElementById("question");
+
+// To display options
 const answerButtons  = document.getElementById("answerButtons");
+
+// hide and unhide 'Next' button
 const nextButton = document.getElementById("nextBtn");
 
 // Get question h1 tag to display Question number.
@@ -183,24 +189,31 @@ function resetState(){
 // check if user select correct option or not and disabled buttons.
 function selectionAnswer(e){
     const selectedBtn = e.target;
-    console.log(e.target);
+    
+    feedbackAns.push(selectedBtn.innerText);        // storing user inputs in an array for generator feedback.
+    // console.log(selectedBtn.innerText);
+    // console.log(e.target);
     if(selectedBtn.dataset.correct === "true"){
-        selectedBtn.classList.add("correct");
-        score++;
+        selectedBtn.classList.add("correct");       // add class that changes the background colour to green
+        score++;                                    // increment score
         // display score
         scoreDisplay.innerHTML = score;
     }else{
-        selectedBtn.classList.add("incorrect");
+        selectedBtn.classList.add("incorrect");     // add class that changes the background colour to red
     }
 
-    Array.from(answerButtons.children).forEach(button => {
-        if(button.dataset.correct === "true"){
+    Array.from(answerButtons.children).forEach(button => {      // If the user selects wrong answer, Only the 'incorrect' class is added, but the application also
+        if(button.dataset.correct === "true"){                  //  shows which option is correct by adding the 'correct' class and disabled buttons (options).
             button.classList.add("correct");
         }
         button.disabled = true;
     });
-    nextButton.style.display = "block";
+
+    nextButton.style.display = "block";             // After the user selects the option, The next button will show.
 }
+
+// report btn, default display none 
+const report = document.getElementById("report");
 
 // Score Card, Display user scored and feedback
 function showScore(){
@@ -209,8 +222,8 @@ function showScore(){
     questionNumber.innerHTML = '';
     scoreDisplay.innerHTML = '';
     scoreText.innerHTML = '';
+    // Display score
     questionNumber.innerHTML = `You Scored ${score} out of ${questions.length}`;
-    console.log(questions.length/2);
 
     // feedback base on score.
     if(score==questions.length){
@@ -222,12 +235,24 @@ function showScore(){
     }else if(score<=questions.length/2 -1 ){
         questionElement.innerHTML = "Keep exploring! You're just getting started. Try again to improve your knowledge.";
     }
-
+    
+    // unhide the report btn & restart btn
+    report.style.display = "block";
     nextButton.innerText = 'Restart';
     nextButton.style.display = "block"
     let parent = nextButton.parentElement;
     parent.classList.add("nextCenter");
+
+    // calling feedback report function, to be ready before user click report btn
+    result();
 }
+
+// When user click the report button, unhide the feedback container.
+const feedback = document.getElementById("feedback");
+report.addEventListener("click", ()=>{
+    quizAppContainer.style.marginTop = "2rem"
+    feedback.style.display = "block";
+});
 
 
 // This function handles the next button, which displays the next question or score card.
@@ -246,12 +271,53 @@ nextButton.addEventListener("click", ()=>{
         handleNextbutton();
     }else{
         startQuiz();
+        resetFeedback();
     }
 });
 
+// Remove feedback container children
+function resetFeedback(){
+    feedbackAns =[];                        //Remove all user inputs from array
+    report.style.display = "none"           //hide report btn
+    feedback.style.display = "none";        //hide feedback container
+    while(feedbackContainer.firstChild){
+        feedbackContainer.removeChild(feedbackContainer.firstChild);
+    }
+    quizAppContainer.style.marginTop = "auto"
+}
 
+// feedback
+const feedbackContainer = document.getElementById("feedbackContainer");
 
+function result(){
+    // Question Number
+    let questionCount = 0;
 
+    // Loop array of objects question and options
+    questions.forEach(obj =>{
+        const questionDisplayTag = document.createElement("h2");                //Create <h2> tag, set inner text question No and question, and lastly append child to Feedback Container. 
 
+        questionDisplayTag.style.marginTop = "1rem";
+        questionDisplayTag.innerHTML = questionCount + 1+'. ' +obj.question;
+        feedbackContainer.appendChild(questionDisplayTag);
 
+        // Loop four options
+        obj.answers.forEach(answer =>{
+            const option = document.createElement("p");                       //Create the <p> tag, set the options text, and add the class 'correct' or 'incorrect'.
+            option.innerHTML = answer.text;
+            option.classList.add("answer");                                    //add button style class 
 
+            if(feedbackAns[questionCount] === answer.text && answer.correct === true){
+                option.classList.add("correct");
+            }
+            if(feedbackAns[questionCount] === answer.text && answer.correct === false){
+                option.classList.add("incorrect");
+            }else if(answer.correct === true){
+                option.classList.add("correct");
+            }
+            
+            feedbackContainer.appendChild(option);
+        });
+        questionCount++;     //Increment Question No.
+    });
+}

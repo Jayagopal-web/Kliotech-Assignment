@@ -22,10 +22,10 @@
 }
 
 
-/* introduction page style */
-.introductionSection{
+/* introduction page style */ /* feedbackSection style */
+.introductionSection, .feedbackSection{
     width: 650px;
-    margin: 1.5rem auto 0 auto;
+    margin: 1.5rem auto 1.5rem auto;
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
@@ -34,8 +34,8 @@
     box-shadow: 0 0 10px 1px;
 }
 
-/* Center the Introduction heading */
-.introductionSection .introductionHeading{
+/* Center the Introduction heading */ /* Center the Feedback heading */
+.introductionSection .introductionHeading, .feedbackSection .feedbackheading{
     align-self: center;
     margin-bottom: 1rem;
 }
@@ -64,16 +64,18 @@ ul li{
 /* Quiz Application */
 /* Center the container */
 .container{
-    min-height: 88vh;
+    /* margin-top: 15%; */
+    min-height: 90vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
 /* card style */
 .quizApp{
-    max-width: 600px;
-    min-width: 500px;
+    max-width: 650px;
+    min-width: 600px;
     padding: 1rem;
     background-color: #ffffffcf;
     box-shadow: 0 0 10px 1px;
@@ -99,8 +101,8 @@ ul li{
     gap: 20px;
 }
 
-/* style button */
-.btn{
+/* style button */ /* .answer style for feedback container options */
+.btn, .answer{
     text-align: start;
     cursor: pointer;
     font-size: 1.2rem;
@@ -109,6 +111,9 @@ ul li{
     border-radius: 5px;
     padding: 10px;
     transition: all .3s ;
+}
+.answer{
+    cursor: default;
 }
 
 /* Hover effect only for buttons not Options */
@@ -131,11 +136,11 @@ ul li{
 /* centre the button, which is the restart button.
 This style class is added through JS. */
 .nextCenter{
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 /* hide 'Next' button, later it will change through JS*/
-#nextBtn{
+#nextBtn ,#report, #feedback{
     display: none;
 }
 
@@ -146,4 +151,11 @@ This style class is added through JS. */
 /* add red background color to option */
 .incorrect{
     background: #ff9393;
+}
+
+.correctAns{
+    color: #9aeabc;
+}
+.worngAns{
+    color: #ff9393;
 }
